@@ -24,14 +24,12 @@ I work with technologies such as .NET, C#, SQL Server, React, React Native, Node
                         <a
                             href="#contact"
                             className="cosmic-button"
-                            target="_blank"
-                            rel="noopener noreferrer"
                         >
                             Get In Touch
                         </a>
 
                         <a
-                            href="/src/assets/sevgi-nur-oksuz-cv.pdf"
+                            href="/sevgi-nur-oksuz-cv.pdf"
                             className="px-6 py-2 rounded-full border border-primary text-primary hover:bg-primary/10 transition-colors duration-300"
                             target="_blank"
                             rel="noopener noreferrer"
