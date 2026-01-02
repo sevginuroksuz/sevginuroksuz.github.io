@@ -4,4 +4,4 @@ export const showToast = (message, options = {}) => {
   toast(message, options);
 };
 
-// Usage: showToast('Hello!')
+

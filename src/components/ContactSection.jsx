@@ -1,17 +1,34 @@
-import { Mail, Phone, MapPin, Linkedin, Twitter, Youtube } from "lucide-react";
+import { Mail, Phone, MapPin, Linkedin, Twitter, Youtube, Send } from "lucide-react";
 import { FaMedium } from "react-icons/fa";
-import {cn} from "@/lib/utils"
+import { cn } from "@/lib/utils";
+import { useState } from "react";
+import { showToast } from "./ui/Toast";
+import { sendContactEmail } from "../lib/email";
 export const ContactSection = () => {
+    const [form, setForm] = useState({ name: "", email: "", message: "" });
+    const [loading, setLoading] = useState(false);
 
-    const handleSubmit = (e) =>
-        e.preventDefault()
-        setTimeout(() => {
-            
-            
-        }, 1500)
-    {
+    const handleChange = (e) => {
+        setForm({ ...form, [e.target.name]: e.target.value });
+    };
 
-    }
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        setLoading(true);
+
+        try {
+            await sendContactEmail(form);
+            setForm({ name: "", email: "", message: "" });
+            showToast("Your message has been sent!", { type: "success" });
+        } catch (err) {
+            
+            console.error("EmailJS error:", err);
+            showToast("Failed to send message. Please try again.", { type: "error" });
+        } finally {
+            setLoading(false);
+        }
+        };
+
     return (
         <section 
         id="contact"
@@ -93,57 +110,62 @@ export const ContactSection = () => {
                 <div className="bg-card p-8 rounded-lg shadow-xs">
                     <h3 className="text-2xl font-semibold mb-6"> Send a Message</h3>
 
-                    <form className="space-y-6 ">
-                        <div>
-                            <label htmlFor="name" className="block text-sm font-medium mb-2">
-                                 Your Name
-                            </label>
-                            <input
-                            type="text"
-                            id="name"
-                            name="name"
-                            required 
-                            className="w-full px-4 py-3 rounded-md border border-input bg-background focus:outline-hidden focus:ring-2 focus:ring-primary"
-                            placeholder="Sevgi Nur Öksüz..."
-                            />
-                        </div>
-
-                        <div>
-                            <label htmlFor="name" className="block text-sm font-medium mb-2">
-                                 Your Email
-                            </label>
-                            <input
-                            type="email"
-                            id="email"
-                            name="email"
-                            required 
-                            className="w-full px-4 py-3 rounded-md border border-input bg-background focus:outline-hidden focus:ring-2 focus:ring-primary"
-                            placeholder="ahmet@gmail.com"
-                            />
-                        </div>
-
-                        <div>
-                            <label htmlFor="message" className="block text-sm font-medium mb-2">
-                                 Your Message
-                            </label>
-                            <textarea                            
-                            id="message"
-                            name="message"
-                            required 
-                            className="w-full px-4 py-3 rounded-md border border-input bg-background focus:outline-hidden focus:ring-2 focus:ring-primary resize-none"
-                            placeholder="Hello, I'd like to talk about... "
-                            />
-                        </div>
-                        <button type="submit" 
-                        className={cn(
-                            "cosmic button w-full flex items-center justify-center gap-2" 
-
-                        )}
-                        > 
-                        Send Message
-                        <Send size={16}/>
-                        </button>
-                    </form>
+                                        <form className="space-y-6" onSubmit={handleSubmit}>
+                                            <div>
+                                                <label htmlFor="name" className="block text-sm font-medium mb-2">
+                                                    Your Name
+                                                </label>
+                                                <input
+                                                    type="text"
+                                                    id="name"
+                                                    name="name"
+                                                    required
+                                                    value={form.name}
+                                                    onChange={handleChange}
+                                                    className="w-full px-4 py-3 rounded-md border border-input bg-background focus:outline-hidden focus:ring-2 focus:ring-primary"
+                                                    placeholder="Sevgi Nur Öksüz..."
+                                                />
+                                            </div>
+                                            <div>
+                                                <label htmlFor="email" className="block text-sm font-medium mb-2">
+                                                    Your Email
+                                                </label>
+                                                <input
+                                                    type="email"
+                                                    id="email"
+                                                    name="email"
+                                                    required
+                                                    value={form.email}
+                                                    onChange={handleChange}
+                                                    className="w-full px-4 py-3 rounded-md border border-input bg-background focus:outline-hidden focus:ring-2 focus:ring-primary"
+                                                    placeholder="ahmet@gmail.com"
+                                                />
+                                            </div>
+                                            <div>
+                                                <label htmlFor="message" className="block text-sm font-medium mb-2">
+                                                    Your Message
+                                                </label>
+                                                <textarea
+                                                    id="message"
+                                                    name="message"
+                                                    required
+                                                    value={form.message}
+                                                    onChange={handleChange}
+                                                    className="w-full px-4 py-3 rounded-md border border-input bg-background focus:outline-hidden focus:ring-2 focus:ring-primary resize-none"
+                                                    placeholder="Hello, I'd like to talk about... "
+                                                />
+                                            </div>
+                                            <button
+                                                type="submit"
+                                                className={cn(
+                                                    "cosmic button w-full flex items-center justify-center gap-2"
+                                                )}
+                                                disabled={loading}
+                                            >
+                                                {loading ? "Sending..." : "Send Message"}
+                                                <Send size={16} />
+                                            </button>
+                                        </form>
                 </div>
 
             </div>

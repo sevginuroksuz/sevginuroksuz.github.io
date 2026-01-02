@@ -1,32 +1,97 @@
 
 import { ExternalLink, Github, ArrowRight } from "lucide-react";
 const projects = [
-    {
-        id:1,
-        title:"EmotionAI",
-        description:"Daily emotion analysis mobil application using React Native and HuggingFace free model ",
-        image:"/projects/project1.png",
-        tags: ["React Native", "Hugging Face"],
-        demoUrl:"#",
-        githubUrl:"https://github.com/sevginuroksuz/emotionAI",
+        {
+        id: 1,
+        title: "EmotionAI – Sentiment Analysis Assistant",
+        description:
+            "An AI-powered mobile assistant that analyzes user sentiment using pre-trained Hugging Face models.",
+        image: "/projects/project1.png",
+        tags: ["React Native", "Hugging Face", "AI", "NLP"],
+        //demoUrl: "#",
+        githubUrl: "https://github.com/sevginuroksuz/emotionAI",
+        },
+        {
+        id: 2,
+        title: "BankLoanDB & Credit Calculator System",
+        description:
+            "A full-stack banking-oriented loan calculation and application system with structured SQL design, stored procedures, and API integration.",
+        image: "/projects/project2.png",
+        tags: [".NET", "SQL Server", "Dapper", "EF Core"],
+        //demoUrl: "#",
+        githubUrl: "https://github.com/sevginuroksuz/credi-calculator-app-frontend",
+        },
+        {
+        id: 3,
+        title: "Ergin Warehouse Management System",
+        description:
+            "Mobile warehouse management application developed for real-world usage, including barcode scanning, stock tracking, and movement logging.",
+        image: "/projects/project3.png",
+        tags: ["Flutter", ".NET API", "MS SQL"],
+        //demoUrl: "#",
+        githubUrl: "https://github.com/sevginuroksuz/ergin-warehouse-management-mobile-app",
+        },
+        {
+        id: 4,
+        title: "AWS Scalable WordPress Architecture",
+        description:
+            "A cloud architecture project demonstrating a scalable and secure WordPress setup using core AWS services.",
+        image: "/projects/project4.jpg",
+        tags: ["AWS", "EC2", "RDS", "CloudFront", "DevOps"],
+        //demoUrl: "#",
+        githubUrl: "https://github.com/sevginuroksuz/aws-wp-scalable-architecture",
+        },
+
+        {
+        id: 5,
+        title: "FocusGarden – Gamified Productivity App",
+        description:
+            "A gamified productivity mobile application that visualizes focused work time as a growing flower garden, encouraging deep focus and habit building.",
+        image: "/projects/project5.png",
+        tags: ["React Native", "Expo", "TypeScript", "Gamification"],
+        //demoUrl: "#",
+        githubUrl: "https://github.com/sevginuroksuz/focusgarden",
+    },  
+
+        {
+        id: 6,
+        title: "Zenity Inventory Management System",
+        description:
+            "A desktop-based inventory management system designed to manage stock, track products, and handle basic warehouse operations with a structured database.",
+        image: "/projects/project8.png",
+        tags: ["C#", ".NET", "MS SQL", "Desktop App"],
+        //demoUrl: "#",
+        githubUrl: "https://github.com/sevginuroksuz/zenity-inventory-system",
+        },
+        {
+        id: 7,
+        title: "Ardunio Smart Car",
+        description:
+            "A hardware-software integrated robot car project capable of obstacle detection and autonomous movement using sensor data.",
+        image: "/projects/project7.jpg",
+        tags: ["Embedded Systems", "Arduino", "C/C++", "IoT"],
+        //demoUrl: "#",
+        githubUrl: "https://github.com/sevginuroksuz/arduino-smart-car",
+        },
+        {
+        id: 8,
+        title: "Real-Time Quiz Platform",
+        description:
+            "A real-time quiz application where users can create quizzes, join live sessions, and compete via live leaderboards using WebSocket technology.",
+        image: "/projects/project9.png",
+        tags: ["Node.js", "Express", "Socket.io", "MongoDB"],
+        //demoUrl: "#",
+        githubUrl: "https://github.com/sevginuroksuz/kahoot-app",
     },
         {
-        id:2,
-        title:"Banking App",
-        description:"Banking Application for credi products mobil using .Net and Angular",
-        image:"/projects/project2.png",
-        tags: [".Net", "Angular","MS Sql"],
-        demoUrl:"#",
-        githubUrl:"#",
-    },
-        {
-        id:3,
-        title:"Ergin Warehouse Management System",
-        description:"Warehouse management mobile application using .Net and Flutter",
-        image:"/projects/project3.png",
-        tags: ["Flutter", ".Net", "MS Sql"],
-        demoUrl:"#",
-        githubUrl:"https://github.com/sevginuroksuz/ergin-warehouse-management-mobile-app",
+        id: 9,
+        title: "Secure File Transfer Application",
+        description:
+            "A secure client-server file transfer system implementing AES and RSA encryption, tested with network traffic analysis.",
+        image: "/projects/project10.png",
+        tags: ["Python", "Cryptography", "Sockets", "Cyber Security"],
+        //demoUrl: "#",
+        githubUrl: "https://github.com/sevginuroksuz/secure-file-transfer-ip",
     },
 
 ];
@@ -50,10 +115,10 @@ export const ProjectSection = () => {
                             </div>
                             <div className="p-6 ">
                                 <div className="flex flex-wrap gap-2 mb-4">
-                                    {project.tags.map((tag) => (
-                                        <span className="px-2 py-1 text-xs font-medium border rounded-full bg-secondary text-secondary-foreground ">
+                                    {project.tags.map((tag, idx) => (
+                                        <span key={tag + idx} className="px-2 py-1 text-xs font-medium border rounded-full bg-secondary text-secondary-foreground ">
                                             {tag}
-                                            </span>
+                                        </span>
                                     ))}
                                 </div>
                              
@@ -62,13 +127,17 @@ export const ProjectSection = () => {
                                 {project.description}
                                 </p> 
                                 <div className="flex justify-between items-center">
-                                    <div class="flex space-x-3">
+                                    
+                                    <div className="flex space-x-3">
+                                        {/**
                                         <a 
-                                        href={project.demoUrl} 
+                                        //href={project.demoUrl} 
                                         target="_blank"
                                         className="text-foreground/80 hover:text-primary transition-colors duration-300">
                                             <ExternalLink size={20} />
                                         </a>
+                                        */}
+                                        
                                         <a 
                                         href={project.githubUrl} 
                                         target="_blank"
