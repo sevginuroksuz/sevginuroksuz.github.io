@@ -1,16 +1,55 @@
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Sevgi Nur Öksüz - Kişisel Portfolyo Sitesi
 
-Currently, two official plugins are available:
+Bu proje, Sevgi Nur Öksüz'ün kişisel portfolyo web sitesidir. Modern React, Vite ve TailwindCSS kullanılarak geliştirilmiştir. Proje, yazılım geliştirme yeteneklerini, projelerini ve iletişim bilgilerini sergilemek amacıyla hazırlanmıştır.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Özellikler
+- Modern ve responsive tasarım
+- Hakkımda, Yetenekler, Projeler ve İletişim bölümleri
+- CV indirme özelliği
+- Tema değiştirme (açık/koyu mod)
+- Dinamik arka plan efektleri
+- GitHub Pages ile kolay dağıtım
 
-## React Compiler
+## Kullanılan Teknolojiler
+- [React](https://react.dev/)
+- [Vite](https://vitejs.dev/)
+- [TailwindCSS](https://tailwindcss.com/)
+- [EmailJS](https://www.emailjs.com/) (İletişim formu için)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Kurulum ve Geliştirme
+1. Depoyu klonlayın:
+	```bash
+	git clone https://github.com/sevginuroksuz/sevginuroksuz.github.io.git
+	cd sevginuroksuz.github.io
+	```
+2. Bağımlılıkları yükleyin:
+	```bash
+	npm install
+	```
+3. Geliştirme sunucusunu başlatın:
+	```bash
+	npm run dev
+	```
+4. Projeyi build edin ve GitHub Pages'e deploy edin:
+	```bash
+	npm run build
+	npm run deploy
+	```
 
-## Expanding the ESLint configuration
+## Klasör Yapısı
+```
+public/           # Statik dosyalar (CV, görseller, vs.)
+src/
+  components/     # React bileşenleri
+  pages/          # Sayfa bileşenleri
+  hooks/          # Özel React hook'ları
+  lib/            # Yardımcı fonksiyonlar
+  assets/         # Proje içi görseller
+```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Canlı Demo
+[https://sevginuroksuz.github.io/](https://sevginuroksuz.github.io/)
+
+## Lisans
+Bu proje MIT lisansı ile lisanslanmıştır.
