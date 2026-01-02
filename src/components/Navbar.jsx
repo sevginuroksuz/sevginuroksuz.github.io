@@ -41,9 +41,9 @@ export const Navbar = () => {
                     : "py-5"
             )}
         >
-            <div className="container flex items-center justify-between">
+            <div className="container flex items-center justify-start">
                 <a
-                    className="text-xl font-bold text-primary flex items-center"
+                    className="text-xl font-bold text-primary flex items-center mr-10"
                     href="#hero"
                 >
                     <span className="relative z-10">
